@@ -361,6 +361,7 @@ impl Protocol for Srtcp {
 impl<P: Protocol> Context<P>
 where
     u64: From<P::PacketIndex>,
+    P::PacketIndex: Into<BigUint>,
 {
     pub fn new(master_key: &[u8], master_salt: &[u8]) -> Self {
         Context {
